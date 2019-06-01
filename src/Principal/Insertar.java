@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -78,5 +78,20 @@ public class Insertar {
                  e.printStackTrace();
             }
         } 
+   public void insAsignarEjercicio(int ejercicio,int dpi,int repeticiones){
+            try{
+                PreparedStatement pr =  cn.prepareStatement("INSERT INTO asignacion ejercicio (id_ejercicio, dpi,repeticiones)"
+                    +"VALUES (?,?,?)");
+                pr.setInt(1, ejercicio);
+                pr.setInt(2, dpi);
+                pr.setInt(3, repeticiones);
+                pr.executeUpdate();
+                 JOptionPane.showMessageDialog(null, "Dato Ingresado");
+            }
+            catch(SQLException e){
+                 JOptionPane.showMessageDialog(null, "No se pudo establecer la conexión con la base de datos 1");
+                 e.printStackTrace();
+            }
+        }
             
 }
